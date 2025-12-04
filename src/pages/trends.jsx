@@ -1,4 +1,4 @@
-export default function trends() {
+export default function Trends() {
     return (
       <div>
         <h1>Trends</h1>

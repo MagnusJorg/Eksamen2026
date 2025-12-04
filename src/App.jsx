@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
-import Trends from './pages/trends'
-import BoernePanel from './pages/boernePanel'
+import Trends from './pages/Trends'
+import BoernePanel from './pages/BoernePanel'
 import './App.css'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <nav style={{ padding: '1rem', borderBottom: '1px solid #ccc' }}>
         {/* Link fungerer ligesom <a> tags, men uden at genindlæse siden */}
         <Link to="/" style={{ marginRight: '20px' }}>Trends (Forside)</Link>
-        <Link to="/boernepanel">Børnepanel</Link>
+        <Link to="/BoernePanel">Børnepanel</Link>
       </nav>
 
       {/* --- HER STYRER VI SIDERNE --- */}
@@ -21,7 +21,7 @@ function App() {
           <Route path="/" element={<Trends />} />
           
           {/* Når stien er "/boernepanel", vis BoernePanel-komponenten */}
-          <Route path="/boernepanel" element={<BoernePanel />} />
+          <Route path="/BoernePanel" element={<BoernePanel />} />
         </Routes>
       </div>
 
