@@ -1,7 +1,17 @@
 export default function BoernePanel() {
     return (
-      <div>
-        <h1>Børnepanel</h1>
-      </div>
+      <section className="trendoverblik">
+
+        <article className="top">
+          <h1> Panel</h1>
+          <div className="filter">
+
+          </div>
+        </article>
+
+        <article className="indhold">
+
+        </article>
+      </section>
     )
   }
