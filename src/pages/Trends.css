@@ -8,3 +8,82 @@ align-items: center;
     display: flex;
 justify-content: center;
 }
+
+/* Centrerer alt indhold på siden */
+.trend-side {
+    max-width: 800px;
+    margin: 0 auto; /* Centrerer containeren */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .side-hoved {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: white; /* Eller en mørk farve som på billedet */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* En let skygge */
+  position: relative; /* <--- VIGTIGT: Holder styr på den absolutte knap */
+  margin-bottom: 10%;
+  max-width: 700px;
+  }
+  
+  /* --- Filter Menu (Segmented Control) --- */
+  .filter-menu {
+    position: relative; /* VIGTIGT: Holder styr på den absolutte glider */
+    display: inline-flex;
+    background-color: #ffffff;
+    padding: 5px; /* Luft rundt om knapperne */
+    border-radius: 200px;
+    border: 1px solid black;
+    
+    /* Sikrer at menuen har en fast bredde så glideren kan regne rigtigt */
+    /* Du kan justere denne bredde eller fjerne den, hvis knapperne fylder nok */
+    min-width: 400px; 
+}
+
+/* Den glidende sorte boks (Pillen) */
+.glider {
+    position: absolute;
+    top: 5px;    /* Samme som padding på .filter-menu */
+    bottom: 5px; /* Samme som padding på .filter-menu */
+    left: 5px;   /* Start position */
+    
+    width: calc((100% - 10px) / 3); /* Bredden er 1/3 af pladsen (minus padding) */
+    background-color: black;
+    border-radius: 200px;
+    z-index: 1; /* Ligger under teksten, men over baggrunden */
+    
+    /* Det er her animationen sker! */
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); 
+}
+
+/* Positioner til glideren */
+.glider.pos-0 { transform: translateX(0%); }
+.glider.pos-1 { transform: translateX(100%); }
+.glider.pos-2 { transform: translateX(200%); }
+
+
+/* --- Knapperne --- */
+.filter-menu button {
+    flex: 1; /* VIGTIGT: Gør alle knapper lige brede */
+    position: relative;
+    z-index: 2; /* Sikrer at teksten ligger OVENPÅ den sorte glider */
+    
+    border: none;
+    background: transparent; /* Gennemsigtig så vi kan se glideren */
+    padding: 10px 0; /* Kun top/bund padding, bredden styres af flex: 1 */
+    border-radius: 200px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #666;
+    transition: color 0.3s; /* Farveskift på tekst skal også være smooth */
+}
+
+/* Når knappen er aktiv skal teksten være hvid (fordi baggrunden er sort) */
+.filter-menu button.aktiv {
+    color: white;
+}
