@@ -7,7 +7,6 @@ import './App.css'
 function App() {
   return (
     <BrowserRouter>
-      
       {/* Her indsætter vi Header-komponenten (som indeholder menuen) */}
       <Header />
 
