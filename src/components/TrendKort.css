@@ -5,8 +5,11 @@
     overflow: hidden;
     background-color: white; /* Eller en mørk farve som på billedet */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* En let skygge */
-  
+  position: relative; /* <--- VIGTIGT: Holder styr på den absolutte knap */
+  margin-bottom: 10%;
+  max-width: 700px;
 }
+  
 
 .kortindhold{
     margin-left: 1rem;
@@ -14,10 +17,31 @@
 }
 
 .knap{
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
+        position: absolute; /* Gør at den ignorerer .kortindhold margener */
+        bottom: 0;          /* Sætter den helt i bunden */
+        right: 0;           /* Sætter den helt til højre */
+        margin: 0;          /* Fjerner de gamle margener, så den rammer kanten */
+        padding: 1rem;      /* Giver lidt luft, så den ikke rører kanten helt (valgfrit) */
 }
 
-.billede{
-    height: 1px;
+.billede img {
+    display: block;      /* 1. Fjerner den lille hvide "tekst-kant" i bunden */
+    width: 100%;         /* Sikrer at den fylder bredden af sin boks */
+    height: 100%;        /* 2. Tvinger billedet til at fylde hele højden af kortet */
+    object-fit: cover;   /* 3. Beskærer billedet pænt, så det ikke bliver mast/strakt */
 }
+
+/* Tilføj evt. dette til selve billede-containeren for at styre bredden */
+.billede {
+    width: 25%;         /* Eller fast pixel bredde, f.eks. 200px */
+    flex-shrink: 0;     /* Sikrer at billedet ikke skrumper, hvis der er meget tekst */
+}
+/* src/components/TrendKort.css */
+.trend-tag {
+    background-color: #F0F2F5; /* Lysegrå baggrund */
+    border-radius: 8px;        /* Bøjede hjørner */
+    padding: 4px 10px;         /* Luft indeni */
+    display: inline-block;     /* Så de opfører sig som bokse */
+    margin-right: 5px;         /* Luft mellem boksene */
+    font-size: 12px;
+  }

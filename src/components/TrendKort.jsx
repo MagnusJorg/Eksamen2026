@@ -1,13 +1,9 @@
-// src/components/TrendKort.jsx
 import './TrendKort.css';
-// BEMÆRK: Ingen import af billede her! Det kommer med "trend"-objektet.
 
 export default function TrendKort({ trend }) {
   return (
     <section className="trendkort">
-        
         <article className='billede'>
-            {/* Vi bruger trend.billede fra data-filen */}
             <img src={trend.billede} alt={trend.titel} />
         </article>
 
@@ -17,7 +13,11 @@ export default function TrendKort({ trend }) {
             
             {/* Dynamiske tags */}
             <div className='tags'>
-                {trend.tags.join(', ')} {/* Dette sætter komma mellem tags */}
+                {trend.tags.map((tag, index) => (
+                    <span key={index} className="trend-tag">
+                        {tag}
+                    </span>
+                ))}
             </div>
             
             <div>
@@ -29,10 +29,10 @@ export default function TrendKort({ trend }) {
                 <p>{trend.beskrivelse}</p> 
             </div>
             
-            <div className='knap'> <button>Se trend pil</button></div>
-
+            <div className='knap'> 
+                <button className="btn-cta"> Se trend →</button>
+            </div>
         </article>
- 
     </section>
   );
 }

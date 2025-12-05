@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/Header' // Her henter vi din nye komponent!
-import Trends from './pages/Trends'
+import Trends from './pages/trends'
 import BoernePanel from './pages/boernePanel'
 import './App.css'
 import './styles/typografi.css';
+import './styles/buttons.css';
 
 function App() {
   return (

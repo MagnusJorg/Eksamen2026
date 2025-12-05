@@ -1,0 +1,15 @@
+.btn-cta {
+    background-color: #2F2F2F;  
+    color: #ffffff;
+    font-weight: 400;            /* Ekstra fed skrift (som på billedet) */
+    letter-spacing: 1px;
+    text-transform: uppercase;   /* STORE BOGSTAVER giver opmærksomhed */
+    border-radius: 8px;        /* Bøjede hjørner */
+    border: none;        /* Fjerner standard kanten */
+    font-size: 15px;
+  padding: 8px 15px;  /* Giver lidt luft omkring teksten */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+
+  
