@@ -1,0 +1,11 @@
+.trendoverblik{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.trendliste{
+    display: flex;
+justify-content: center;
+}
+

@@ -3,6 +3,7 @@ import Header from './components/Header' // Her henter vi din nye komponent!
 import Trends from './pages/Trends'
 import BoernePanel from './pages/boernePanel'
 import './App.css'
+import './styles/typografi.css';
 
 function App() {
   return (

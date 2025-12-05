@@ -1,0 +1,23 @@
+
+.trendkort{
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: white; /* Eller en mørk farve som på billedet */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* En let skygge */
+  
+}
+
+.kortindhold{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.knap{
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+.billede{
+    height: 1px;
+}
