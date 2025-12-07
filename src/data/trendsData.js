@@ -1,51 +1,110 @@
 // src/data/trendsData.js
 
-// 1. Vi importerer billederne (husk at lægge billederne i mappen først!)
-import labubuImg from '../assets/trendbillede/labubu.png'; 
-import clashImg from '../assets/trendbillede/labubu.png'; // Ret til clash.png når du har det
-import brainrotImg from '../assets/trendbillede/labubu.png'; // Ret til brainrot.png
-import fidgetImg from '../assets/trendbillede/labubu.png'; // Ret til fidget.png
-import slimeImg from '../assets/trendbillede/labubu.png'; // Ret til slime.png
+// 1. Vi importerer alle dine .webp billeder fra mappen
+import labubuImg from '../assets/trendbillede/labubu.webp';
+import clashImg from '../assets/trendbillede/clashroyale.webp';
+import brainrotImg from '../assets/trendbillede/brainrot.webp';
+import fidgetImg from '../assets/trendbillede/fidgetcube.webp';
+import slimeImg from '../assets/trendbillede/slime.webp';
+import s67Img from '../assets/trendbillede/67.webp';
+import soapImg from '../assets/trendbillede/soapcutting.webp';
+import mrbeastImg from '../assets/trendbillede/mrbeast.webp';
+import chillguyImg from '../assets/trendbillede/chillguy.webp';
+import demonhuntersImg from '../assets/trendbillede/demonhunters.webp';
+import squidgameImg from '../assets/trendbillede/squidgame.webp';
 
 export const trendsData = [
+  // --- ETABLERET (>70%) ---
   {
     id: 1,
     titel: "Labubu",
-    beskrivelse: "Gået viralt på TikTok. De små monstre er overalt lige nu, og børnene elsker at samle på dem.",
-    kendskabsgrad: 85,
-    tags: ["Plys", "Samleobjekt", "8-12 år"],
+    beskrivelse: "Gået viralt på TikTok pga. unboxing-videoer.",
+    kendskabsgrad: 92,
+    tags: ["Plys", "Nøgleringe", "8-12 år"],
     billede: labubuImg
   },
   {
     id: 2,
     titel: "Clash Royale",
-    beskrivelse: "Mobilspillet der har fået et kæmpe comeback. Alle drengene spiller det i frikvarteret igen.",
-    kendskabsgrad: 92,
-    tags: ["Gaming", "Mobil", "Strategi"],
+    beskrivelse: "Gået viralt på Twitch pga. Influencer.",
+    kendskabsgrad: 88,
+    tags: ["Gaming", "iPad", "10-12 år"],
     billede: clashImg
   },
   {
     id: 3,
     titel: "Brainrot",
-    beskrivelse: "Nye slangord fra internettet som 'Skibidi' og 'Rizz', som de voksne intet forstår af.",
-    kendskabsgrad: 45,
-    tags: ["Sprog", "TikTok", "Humor"],
+    beskrivelse: "Startede på TikTok, nu på Roblox.",
+    kendskabsgrad: 74,
+    tags: ["Roblox", "YouTube", "Meme"],
     billede: brainrotImg
   },
   {
     id: 4,
     titel: "Fidget cube",
-    beskrivelse: "Den lille terning med knapper er tilbage. God til at holde fingrene i gang i timerne.",
-    kendskabsgrad: 60,
-    tags: ["Fokus", "Dille", "Skole"],
+    beskrivelse: "En ny del af Fidget trenden.",
+    kendskabsgrad: 72,
+    tags: ["Gaming", "iPad", "10-12 år"],
     billede: fidgetImg
   },
   {
     id: 5,
     titel: "Slime",
-    beskrivelse: "Det klistrede stads er stadig et hit. Nu skal det helst være 'fluffy' eller sige lyde.",
-    kendskabsgrad: 75,
-    tags: ["Kreativt", "Sanse", "Leg"],
+    beskrivelse: "En ny del af Fidget trenden.",
+    kendskabsgrad: 70,
+    tags: ["ASMR", "DIY", "TikTok"],
     billede: slimeImg
+  },
+
+  // --- VÆKST (25-70%) ---
+  {
+    id: 6,
+    titel: "67",
+    beskrivelse: "Viral fællesskabs råben.",
+    kendskabsgrad: 65,
+    tags: ["Memes", "Brainrot", "5-12 år"],
+    billede: s67Img
+  },
+  {
+    id: 7,
+    titel: "Soap cutting",
+    beskrivelse: "TikTok og Instagram viral ASMR trend.",
+    kendskabsgrad: 56,
+    tags: ["ASMR", "DIY", "5-12 år"],
+    billede: soapImg
+  },
+  {
+    id: 8,
+    titel: "MrBeast",
+    beskrivelse: "Verdens største YouTuber laver vilde konkurrencer.",
+    kendskabsgrad: 35,
+    tags: ["YouTube", "10-12 år"],
+    billede: mrbeastImg
+  },
+
+  // --- UNDER RADAREN (<25%) ---
+  {
+    id: 9,
+    titel: "Chill guy",
+    beskrivelse: "Viral tegneseriefigur der tager alt roligt.",
+    kendskabsgrad: 23,
+    tags: ["DIY", "Brainrot", "12 år"],
+    billede: chillguyImg
+  },
+  {
+    id: 10,
+    titel: "Demon hunters",
+    beskrivelse: "TikTok og Instagram viral ASMR trend.",
+    kendskabsgrad: 14,
+    tags: ["ASMR", "DIY", "5-12 år"],
+    billede: demonhuntersImg
+  },
+  {
+    id: 11,
+    titel: "Squid game",
+    beskrivelse: "Ny sæson skaber fornyet interesse.",
+    kendskabsgrad: 10,
+    tags: ["YouTube", "10-12 år"],
+    billede: squidgameImg
   }
 ];

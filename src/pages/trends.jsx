@@ -6,7 +6,6 @@ import './Trends.css';
 export default function Trends() {
   const [kategori, setKategori] = useState('Etableret');
 
-  // Hjælpefunktion til at styre gliderens position
   const getGliderPosition = () => {
     if (kategori === 'Etableret') return 'pos-0';
     if (kategori === 'Vækst') return 'pos-1';
@@ -22,38 +21,44 @@ export default function Trends() {
 
   return (
     <main className="trend-side">
-      <header className="side-hoved">
-        <h1>Trend Overblik</h1>
+      <div className="intro-container">
         
-        {/* Navigationen skal være "relative" for at glideren kan styres */}
+        <div className='overskrift'>
+          <h1>Trend Overblik</h1>
+        </div>
+        
         <nav className="filter-menu">
-          
-          {/* HER ER DEN NYE GLIDER DIV! */}
-          {/* Den får en klasse baseret på hvilken knap der er valgt */}
           <div className={`glider ${getGliderPosition()}`}></div>
 
+          {/* Knap 1: Etableret */}
           <button 
             className={kategori === 'Etableret' ? 'aktiv' : ''} 
             onClick={() => setKategori('Etableret')}
           >
+            {/* Vi bruger bare den sorte SVG. CSS gør den hvid, når den er aktiv! */}
+            <img src="/icons/ild.svg" alt="" className="btn-icon" />
             Etableret
           </button>
 
+          {/* Knap 2: Vækst */}
           <button 
             className={kategori === 'Vækst' ? 'aktiv' : ''} 
             onClick={() => setKategori('Vækst')}
           >
+            <img src="/icons/stjerne.svg" alt="" className="btn-icon" />
             Vækst
           </button>
 
+          {/* Knap 3: Under radaren */}
           <button 
             className={kategori === 'Under radaren' ? 'aktiv' : ''} 
             onClick={() => setKategori('Under radaren')}
           >
+            <img src="/icons/rader.svg" alt="" className="btn-icon" />
             Under radaren
           </button>
         </nav>
-      </header>
+      </div>
 
       <section className="trend-liste">
         {visteTrends.map(trend => (
