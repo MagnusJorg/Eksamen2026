@@ -2,10 +2,21 @@
 import { useParams, Link } from 'react-router-dom';
 import { trendsData } from '../data/trendsData';
 import './TrendProfil.css';
+// henter graf ting
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, YAxis } from 'recharts';
 
 export default function TrendProfil() {
-  const { id } = useParams();
-  const trend = trendsData.find(t => t.id === parseInt(id));
+    const { id } = useParams();
+    const trend = trendsData.find(t => t.id === parseInt(id));
+    const TOTAL_PANEL = 100;
+  
+    if (!trend) return <div>Trend ikke fundet</div>;
+  
+    // En simpel udregning af procent
+    const grafData = trend.grafData ? trend.grafData.map(p => ({
+      navn: p.navn,
+      procent: Math.round((p.antal / TOTAL_PANEL) * 100)
+    })) : [];
 
   if (!trend) return <div>Trend ikke fundet</div>;
 
@@ -46,14 +57,45 @@ export default function TrendProfil() {
         </section>
 
         <section className='hojre'>
-            <article className='dataoverblik'>
-                <h2>Data overblik</h2>
-            </article>
-            <article className='indsigter'>
-                <h2>Kvalitative indsigter</h2>
-            </article>
+           
+           <article className='dataoverblik'>
+              <h2>Data overblik</h2>
+              
+              {/* Vi bruger en CSS klasse i stedet for inline style */}
+              <div className="graf-container">
+                <ResponsiveContainer>
+                  <LineChart data={grafData}>
+                    {/* Simpel X-akse uden for meget styling */}
+                    <XAxis dataKey="navn" />
+                    
+                    {/* Skjult Y-akse der går fra 0 til 100 */}
+                    <YAxis 
+                        domain={[0, 100]} 
+                        ticks={[0, 25, 50, 75, 100]} 
+                        tickFormatter={(value) => `${value}%`}
+                    />
+                                        
+                    {/* Simpel Tooltip der bare viser tallet + % */}
+                    <Tooltip formatter={(value) => value + " %"} />
+                    
+                    {/* Selve stregen */}
+                    <Line 
+                        type="monotone" 
+                        dataKey="procent" 
+                        stroke="#000" 
+                        strokeWidth={2} 
+                    />
+                  </LineChart>
+                </ResponsiveContainer>
+              </div>
+
+           </article>
+
+           <article className='indsigter'>
+              <h2>Kvalitative indsigter</h2>
+           </article>
         </section>
-    </section>
+      </section>
     </>
   );
 }

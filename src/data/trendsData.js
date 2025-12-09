@@ -31,6 +31,14 @@ export const trendsData = [
         "Er totalt udsolgt i de fleste danske hobbybutikker.",
         "Særligt populær blandt piger i alderen 10-14 år på TikTok.",
         "Der ses en stigning i bytte-grupper på Facebook."
+      ],
+      grafData: [
+        { navn: 'Jan', antal: 15 },
+        { navn: 'Feb', antal: 32 },
+        { navn: 'Mar', antal: 45 },
+        { navn: 'Apr', antal: 60 },
+        { navn: 'Maj', antal: 85 },
+        { navn: 'Jun', antal: 92 },
       ]
   },
   {
