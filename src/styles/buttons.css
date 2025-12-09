@@ -11,5 +11,33 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   
+  .btn-land {
+    border: none;
+    background: transparent; /* Ingen baggrundsfarve som standard */
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%; /* Rund knap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease; /* Gør overgangen blød */
+    
+    /* HER ER DIN ANMODNING: */
+    opacity: 0.3; /* 30% synlighed når den IKKE er valgt */
+  }
+  
+  /* Når man holder musen over (valgfrit, men god UX) */
+  .btn-land:hover {
+    opacity: 0.7; /* Lidt tydeligere, så man ved man kan klikke */
+    background-color: rgba(0,0,0,0.05);
+  }
+  
+  /* Når knappen er aktiv (valgt) */
+  .btn-land.active {
+    opacity: 1; /* 100% synlighed */
+    background-color: white; /* Hvid baggrund for at fremhæve den */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transform: scale(1.1); /* Gør den en lille smule større */
+  }
 
   
