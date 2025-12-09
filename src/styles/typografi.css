@@ -10,6 +10,7 @@ body {
     font-weight: bold;
     margin: 0;
     color: #2C2B2B;
+    text-decoration: none;
 
   }
   
@@ -20,6 +21,7 @@ body {
     padding-top: 0.2rem;
     padding-bottom: 0.2rem;
     font-weight: 700;
+    text-decoration: none;
   }
   
   h3 {

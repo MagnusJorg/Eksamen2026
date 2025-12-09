@@ -1,0 +1,40 @@
+.top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    width: 40%;
+    border-radius: 16px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px 20px 10px;
+}
+
+.indhold{
+    display: flex;
+    justify-content: center;
+}
+.venstre{
+    display: flex;
+    flex-direction: column;
+}
+
+.nordisk{
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.billeder{
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

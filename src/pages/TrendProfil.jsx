@@ -1,6 +1,7 @@
 // src/pages/TrendProfil.jsx
 import { useParams, Link } from 'react-router-dom';
 import { trendsData } from '../data/trendsData';
+import './TrendProfil.css';
 
 export default function TrendProfil() {
   const { id } = useParams();
@@ -9,9 +10,35 @@ export default function TrendProfil() {
   if (!trend) return <div>Trend ikke fundet</div>;
 
   return (
-    <div>
-      <Link to="/">Tilbage</Link>
-      <h1>{trend.titel}</h1>
-    </div>
+    <>
+                <Link to="/">Tilbage</Link>
+    <section className='top'>
+        <article className='info'>
+            <h1>{trend.titel}</h1>
+            <p>paragraf tekst</p>
+        </article>
+    </section>
+
+    <section className='indhold'>
+        <section className='venstre'>
+            <article className='nordisk'>
+                <h2>Nordiske status</h2>
+                
+            </article>
+            <article className='billeder'>
+                <h2>Billeder</h2>
+            </article>
+        </section>
+
+        <section className='hojre'>
+            <article className='dataoverblik'>
+                <h2>Data overblik</h2>
+            </article>
+            <article className='indsigter'>
+                <h2>Kvalitative indsigter</h2>
+            </article>
+        </section>
+    </section>
+    </>
   );
 }

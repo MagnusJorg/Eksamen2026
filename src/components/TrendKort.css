@@ -45,3 +45,43 @@
     margin-right: 5px;         /* Luft mellem boksene */
     font-size: 12px;
   }
+
+  /* src/components/TrendKort.css */
+
+/* 1. Reset standard link-styling (så teksten ikke bliver blå/lilla) */
+.trendkort-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Vigtigt for at transform virker */
+    height: 100%;
+}
+
+.trendkort {
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-bottom: 10%;
+    max-width: 700px;
+
+    /* 2. HER ER MAGIEN: Vi gør klar til animation */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 3. HOVER EFFEKTEN: Når man holder musen over linket */
+.trendkort-link:hover .trendkort {
+    transform: translateY(-5px); /* Løfter kortet 5 pixels op */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Gør skyggen dybere */
+    cursor: pointer;
+}
+
+/* ... resten af din CSS (kortindhold, billede, tags osv.) ... */
+
+/* Tjek at din .btn-cta stadig ser rigtig ud. 
+   Da det nu er en <span>, har den måske brug for 'display: inline-block' hvis den opfører sig mærkeligt */
+.btn-cta {
+    /* ... dine eksisterende farver osv ... */
+    display: inline-block; /* Sikrer at padding virker på span */
+}
