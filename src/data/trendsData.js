@@ -21,7 +21,17 @@ export const trendsData = [
     beskrivelse: "Gået viralt på TikTok pga. unboxing-videoer.",
     kendskabsgrad: 92,
     tags: ["Plys", "Nøgleringe", "8-12 år"],
-    billede: labubuImg
+    billede: labubuImg,
+    billeder: [
+        labubuImg, // Billede 1
+        labubuImg, // Billede 2 (Du kan skifte disse ud senere)
+        labubuImg  // Billede 3
+      ],
+    nordiskStatus: [
+        "Er totalt udsolgt i de fleste danske hobbybutikker.",
+        "Særligt populær blandt piger i alderen 10-14 år på TikTok.",
+        "Der ses en stigning i bytte-grupper på Facebook."
+      ]
   },
   {
     id: 2,

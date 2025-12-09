@@ -21,12 +21,27 @@ export default function TrendProfil() {
 
     <section className='indhold'>
         <section className='venstre'>
-            <article className='nordisk'>
-                <h2>Nordiske status</h2>
-                
-            </article>
+        <article className='nordisk'>
+    <h2>Nordiske status</h2>
+    <ul className="status-liste">
+        {/* Vi går direkte til map, fordi vi stoler på dataen */}
+        {trend.nordiskStatus.map((punkt, index) => (
+            <li key={index}>{punkt}</li>
+        ))}
+    </ul>
+</article>
             <article className='billeder'>
                 <h2>Billeder</h2>
+                <div className="galleri">
+        {/* Tjek om billeder findes, ellers vis ingenting */}
+        {trend.billeder?.map((billede, index) => (
+            <img className="galleriimg" 
+                key={index} 
+                src={billede} 
+                alt={` ${index + 1}`} 
+            />
+        ))}
+    </div>
             </article>
         </section>
 
