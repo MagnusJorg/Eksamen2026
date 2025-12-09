@@ -18,12 +18,10 @@
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    text-align: center;
     
     /* HER ER TRICKKET: */
 
     width: 820px;   /* ...men stop ved 820px (400 + 400 + 20 gap) */
-    box-sizing: border-box; /* Sikrer at padding ikke gør boksen bredere end 820px */
 }
 
 /* Tilbage linket skal ligge pænt */
@@ -122,6 +120,11 @@ article {
 .flag-ikon {
     width: 30px;
     height: 30px;
+}
+
+.aldersrekke{
+    gap: 5px;
+    display: flex;
 }
 
 /* Selve grafens kasse */

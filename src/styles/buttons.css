@@ -1,43 +1,82 @@
 .btn-cta {
-    background-color: #2F2F2F;  
-    color: #ffffff;
-    font-weight: 400;            /* Ekstra fed skrift (som på billedet) */
-    letter-spacing: 1px;
-    text-transform: uppercase;   /* STORE BOGSTAVER giver opmærksomhed */
-    border-radius: 8px;        /* Bøjede hjørner */
-    border: none;        /* Fjerner standard kanten */
-    font-size: 15px;
-  padding: 8px 15px;  /* Giver lidt luft omkring teksten */
+  background-color: #2F2F2F;
+  color: #ffffff;
+  font-weight: 400;
+  /* Ekstra fed skrift (som på billedet) */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  /* STORE BOGSTAVER giver opmærksomhed */
+  border-radius: 8px;
+  /* Bøjede hjørner */
+  border: none;
+  /* Fjerner standard kanten */
+  font-size: 15px;
+  padding: 8px 15px;
+  /* Giver lidt luft omkring teksten */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  .btn-land {
-    border: none;
-    background: transparent; /* Ingen baggrundsfarve som standard */
-    cursor: pointer;
-    padding: 6px;
-    border-radius: 50%; /* Rund knap */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease; /* Gør overgangen blød */
-    
-    /* HER ER DIN ANMODNING: */
-    opacity: 0.3; /* 30% synlighed når den IKKE er valgt */
-  }
-  
-  /* Når man holder musen over (valgfrit, men god UX) */
-  .btn-land:hover {
-    opacity: 0.7; /* Lidt tydeligere, så man ved man kan klikke */
-    background-color: rgba(0,0,0,0.05);
-  }
-  
-  /* Når knappen er aktiv (valgt) */
-  .btn-land.active {
-    opacity: 1; /* 100% synlighed */
-    background-color: white; /* Hvid baggrund for at fremhæve den */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transform: scale(1.1); /* Gør den en lille smule større */
-  }
+}
 
+.btn-land {
+  border: none;
+  background: transparent;
+  /* Ingen baggrundsfarve som standard */
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  /* Rund knap */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  /* Gør overgangen blød */
+
+  /* HER ER DIN ANMODNING: */
+  opacity: 0.3;
+  /* 30% synlighed når den IKKE er valgt */
+}
+
+/* Når man holder musen over (valgfrit, men god UX) */
+.btn-land:hover {
+  opacity: 0.7;
+  /* Lidt tydeligere, så man ved man kan klikke */
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Når knappen er aktiv (valgt) */
+.btn-land.active {
+  opacity: 1;
+  /* 100% synlighed */
+  background-color: white;
+  /* Hvid baggrund for at fremhæve den */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+  /* Gør den en lille smule større */
+}
+
+.btn-filter {
+  background-color: #E6E6E6;   /* Hvid baggrund som standard */
+  color: #000000;              /* Sort tekst */
+  border: none;                /* Ingen kant */
+  padding: 8px 16px;           /* Luft omkring teksten */
+  font-size: 14px;
+  font-weight: 500;            /* Halv-fed tekst */
+  cursor: pointer;
+  /* Gør dem firkantede ligesom på billedet */
+  border-radius: 20px;          
   
+  /* En lille skygge får dem til at "poppe" frem som kort */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+  
+  transition: all 0.2s ease;
+}
+
+.btn-filter:hover {
+  background-color: #c4c4c4;   /* Meget lys grå ved hover */
+}
+
+/* NÅR DEN ER KLIKKET PÅ (AKTIV) */
+.btn-filter.active {
+  background-color: #282828;   /* Sort baggrund */
+  color: #ffffff;              /* Hvid tekst */
+  box-shadow: none;            /* Fjerner skyggen så den ser "trykket ned" ud */
+}

@@ -57,14 +57,7 @@
 }
 
 .trendkort {
-    display: flex;
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
-    margin-bottom: 10%;
-    max-width: 700px;
+    padding: 0px;
 
     /* 2. HER ER MAGIEN: Vi gør klar til animation */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
