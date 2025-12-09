@@ -1,5 +1,5 @@
 // src/data/panelData.js
-import barn1 from '../assets/børn/barn1.webp'; // Husk at have billeder klar eller brug placeholders
+import barn1 from '../assets/panel/frederik.webp'; // Husk at have billeder klar eller brug placeholders
 // ... importer flere billeder
 
 export const panelData = [
@@ -8,7 +8,7 @@ export const panelData = [
     navn: "Lucas",
     alder: "10 år",
     interesser: "Gaming, YouTube",
-    billede: "https://placehold.co/300x300?text=Lucas" // Midlertidigt billede
+    billede: "barn1" // Midlertidigt billede
   },
   {
     id: 2,
