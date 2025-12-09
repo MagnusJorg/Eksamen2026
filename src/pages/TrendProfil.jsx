@@ -1,89 +1,135 @@
 // src/pages/TrendProfil.jsx
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { trendsData } from '../data/trendsData';
 import './TrendProfil.css';
-// henter graf ting
-import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, YAxis } from 'recharts';
+
+// Vi henter graf-komponenterne fra biblioteket 'recharts'
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 export default function TrendProfil() {
-    const { id } = useParams();
-    const trend = trendsData.find(t => t.id === parseInt(id));
-    const TOTAL_PANEL = 100;
+  // 1. Vi finder ud af, hvilken trend vi er på, ved at kigge i URL'en (id)
+  const { id } = useParams();
+  const trend = trendsData.find(t => t.id === parseInt(id));
   
-    if (!trend) return <div>Trend ikke fundet</div>;
-  
-    // En simpel udregning af procent
-    const grafData = trend.grafData ? trend.grafData.map(p => ({
-      navn: p.navn,
-      procent: Math.round((p.antal / TOTAL_PANEL) * 100)
-    })) : [];
+  // State til at huske, hvilket land man har klikket på (Starter på Danmark)
+  const [valgtLand, setValgtLand] = useState('Danmark');
 
+  // Vi leger, at der er 100 børn i panelet for at regne procent ud
+  const TOTAL_PANEL = 100;
+
+  // Sikkerheds-tjek: Hvis trenden ikke findes (f.eks. forkert ID), stop her.
   if (!trend) return <div>Trend ikke fundet</div>;
+
+  // 2. Vi gør data klar til grafen
+  // Vi laver en ny liste, hvor vi regner 'antal' om til 'procent'
+  const grafData = trend.grafData ? trend.grafData.map(dataPunkt => ({
+      navn: dataPunkt.navn,
+      procent: Math.round((dataPunkt.antal / TOTAL_PANEL) * 100)
+  })) : [];
+
+  // Liste over de lande vi vil vise filter for
+  // Husk at lægge svg-filer med disse navne i public/icons/ mappen (fx dk.svg)
+  const lande = [
+      { navn: 'Danmark', fil: 'dk.svg' },
+      { navn: 'Norge', fil: 'no.svg' },
+      { navn: 'Sverige', fil: 'se.svg' },
+      { navn: 'Finland', fil: 'fi.svg' }
+  ];
 
   return (
     <>
-                <Link to="/">Tilbage</Link>
-    <section className='top'>
-        <article className='info'>
-            <h1>{trend.titel}</h1>
-            <p>paragraf tekst</p>
-        </article>
-    </section>
-
-    <section className='indhold'>
-        <section className='venstre'>
-        <article className='nordisk'>
-    <h2>Nordiske status</h2>
-    <ul className="status-liste">
-        {/* Vi går direkte til map, fordi vi stoler på dataen */}
-        {trend.nordiskStatus.map((punkt, index) => (
-            <li key={index}>{punkt}</li>
-        ))}
-    </ul>
-</article>
-            <article className='billeder'>
-                <h2>Billeder</h2>
-                <div className="galleri">
-        {/* Tjek om billeder findes, ellers vis ingenting */}
-        {trend.billeder?.map((billede, index) => (
-            <img className="galleriimg" 
-                key={index} 
-                src={billede} 
-                alt={` ${index + 1}`} 
-            />
-        ))}
-    </div>
+      {/* --- TOP SEKTION (Tilbage knap + Titel) --- */}
+      <section className='top'>
+         <div className="top-indhold">
+            <Link to="/" className="tilbage-link">← Tilbage</Link>
+            <article className='info'>
+                <h1>{trend.titel}</h1>
+                <p>{trend.beskrivelse}</p>
             </article>
+         </div>
+      </section>
+
+      {/* --- HOVED INDHOLD (Opdelt i Venstre og Højre) --- */}
+      <section className='indhold'>
+        
+        {/* VENSTRE KOLONNE */}
+        <section className='venstre'>
+           
+           <article className='nordisk'>
+              <h2>Nordisk status</h2>
+              {/* Vi tjekker om listen findes før vi viser den (Best practice) */}
+              {trend.nordiskStatus && (
+                  <ul className="status-liste">
+                     {trend.nordiskStatus.map((punkt, index) => (
+                        <li key={index}>{punkt}</li>
+                     ))}
+                  </ul>
+              )}
+           </article>
+
+           <article className='billeder'>
+              <h2>Billeder</h2>
+              <div className="galleri">
+                 {/* Vi viser billederne hvis de findes */}
+                 {trend.billeder?.map((billede, index) => (
+                    <img 
+                        key={index} 
+                        src={billede} 
+                        alt={`Galleri ${index}`} 
+                        className="galleriimg" 
+                    />
+                 ))}
+              </div>
+           </article>
+
         </section>
 
+        {/* HØJRE KOLONNE */}
         <section className='hojre'>
            
            <article className='dataoverblik'>
-              <h2>Data overblik</h2>
               
-              {/* Vi bruger en CSS klasse i stedet for inline style */}
+              <div className="header-med-filter">
+                  <h2>Data overblik</h2>
+                  
+                  {/* Her er vores lande-filter */}
+                  <div className="lande-filter">
+                      {lande.map((land) => (
+                          <button 
+                              key={land.navn}
+                              className={valgtLand === land.navn ? 'land-knap aktiv' : 'land-knap'}
+                              onClick={() => setValgtLand(land.navn)}
+                          >
+                              {/* Vi bruger ikonet i stedet for tekst */}
+                              <img src={`/icons/${land.fil}`} alt={land.navn} className="flag-ikon" />
+                          </button>
+                      ))}
+                  </div>
+              </div>
+              
+              {/* Selve Grafen */}
               <div className="graf-container">
-                <ResponsiveContainer>
+                <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={grafData}>
-                    {/* Simpel X-akse uden for meget styling */}
-                    <XAxis dataKey="navn" />
+                    <XAxis dataKey="navn"/>
                     
-                    {/* Skjult Y-akse der går fra 0 til 100 */}
+                    {/* Y-aksen viser faste procenter: 0, 25, 50, 75, 100 */}
                     <YAxis 
                         domain={[0, 100]} 
                         ticks={[0, 25, 50, 75, 100]} 
                         tickFormatter={(value) => `${value}%`}
+                        tickLine={false}
                     />
-                                        
-                    {/* Simpel Tooltip der bare viser tallet + % */}
-                    <Tooltip formatter={(value) => value + " %"} />
                     
-                    {/* Selve stregen */}
+                    <Tooltip formatter={(value) => `${value}%`} />
+                    
                     <Line 
                         type="monotone" 
                         dataKey="procent" 
                         stroke="#000" 
-                        strokeWidth={2} 
+                        strokeWidth={3} 
+                        dot={{ r: 4 }}
                     />
                   </LineChart>
                 </ResponsiveContainer>
@@ -93,7 +139,9 @@ export default function TrendProfil() {
 
            <article className='indsigter'>
               <h2>Kvalitative indsigter</h2>
+              <p>Her kommer citater fra børnene senere...</p>
            </article>
+
         </section>
       </section>
     </>

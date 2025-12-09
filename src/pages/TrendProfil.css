@@ -1,93 +1,161 @@
-.top{
+/* src/pages/TrendProfil.css */
+
+
+/* --- TOP SEKTION --- */
+.top {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Dette centrerer .info boksen vandret på siden */
     justify-content: center;
-
+    margin-bottom: 30px;
+    width: 100%;
 }
 
-.info{
+.info {
     display: flex;
     flex-direction: column;
-    border-radius: 16px;
-    width: 40%;
-    border-radius: 16px;
     background-color: white;
+    border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px 20px 10px;
+    padding: 30px;
+    text-align: center;
+    
+    /* HER ER TRICKKET: */
+
+    width: 820px;   /* ...men stop ved 820px (400 + 400 + 20 gap) */
+    box-sizing: border-box; /* Sikrer at padding ikke gør boksen bredere end 820px */
 }
 
-.indhold{
+/* Tilbage linket skal ligge pænt */
+.top a {
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+    align-self: flex-start; /* Sætter den til venstre */
+    margin-left: 10%; /* Juster så den passer med dit layout */
+    margin-bottom: 10px;
+}
+
+/* --- HOVED LAYOUT (Indhold) --- */
+.indhold {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-    gap: 20px;
-}
-.venstre{
-    display: flex;
-    flex-direction: column;
+    gap: 20px; /* Afstand mellem kolonnerne */
+    padding-bottom: 50px;
+    flex-wrap: wrap; /* Gør layoutet responsivt på små skærme */
 }
 
-.nordisk{
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 350px;       /* 1. Boksen bliver aldrig bredere end 350px (du kan justere tallet) */
-    width: 100%;            /* 2. Den fylder ud indtil den rammer max-width */
-    padding: 10px;          /* 3. Teksten holder sig 10px fra kanten */
-    box-sizing: border-box; /* 4. Sikrer at padding tælles MED i bredden, så layoutet ikke springer */
-}
-.status-liste {
-    margin-top: 2px;
-}
-/* De enkelte punkter (li) */
-.status-liste li {
-    margin-bottom: 10px; /* Luft mellem linjerne */
-    color: #333;
-    text-align: left; /* Sikrer at teksten står pænt til venstre */
-}
-
-.billeder{
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    padding-left: 10px;
-}
-.galleri {
+/* Venstre og Højre kolonne */
+.venstre {
     display: flex;
     flex-direction: column;
-}
-.galleriimg{
-    padding: 20px;
-    max-height: 100px;
+    gap: 20px; /* Afstand mellem boksene lodret */
+    width: 100%;
+    max-width: 350px; /* Sikrer at begge kolonner er lige brede */
 }
 
 .hojre{
-    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Afstand mellem boksene lodret */
+    width: 100%;
+    max-width: 500px; /* Sikrer at begge kolonner er lige brede */
+}
+/* --- FÆLLES BOKS STYLING --- */
+/* Alle artikler (nordisk, billeder, data, indsigter) deler disse grundregler */
+article {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px; /* Fælles padding så intet rører kanten */
 }
 
-.dataoverblik{
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding-left: 10px;
+/* --- SPECIFIKKE BOKSE --- */
+
+/* 1. Nordisk Status */
+.status-liste {
+    padding-left: 20px; /* Plads til prikkerne */
+    margin-top: 10px;
 }
-.indsigter{
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding-left: 10px;
-    margin-top: 20px;
+
+.status-liste li {
+    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.5;
 }
-/* Grafen */
+
+/* 2. Billeder */
+.galleri {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Luft mellem billederne */
+    margin-top: 15px;
+}
+
+.galleriimg {
+    width: 100%;
+    height: 150px; /* Fast højde sikrer ensartethed */
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* 3. Data Overblik (Grafen) */
+.header-med-filter {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    margin-bottom: 15px;
+}
+
+
+
+/* Filter knapperne (Landene) */
+.lande-filter {
+    display: flex;
+    gap: 8px;
+    padding: 4px;
+    border-radius: 50px;
+}
+
+.land-knap {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.land-knap:hover {
+    background-color: #e0e0e0;
+}
+
+/* Når et land er valgt */
+.land-knap.aktiv {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transform: scale(1.1);
+}
+
+.flag-ikon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Selve grafens kasse */
 .graf-container {
     width: 100%;
     height: 250px;
-    margin-top: 20px;
-    font-size: 12px; 
+    margin-top: 10px;
+    font-size: 12px; /* Gør tallene på akserne pæne og små */
+}
+
+/* 4. Kvalitative Indsigter */
+.indsigter {
+    /* Den arver automatisk 'article' stilen øverst, 
+       så vi behøver ikke skrive mere her medmindre den skal være speciel */
 }
