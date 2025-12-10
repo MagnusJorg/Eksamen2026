@@ -1,0 +1,10 @@
+.panelsec{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.kortgrid{
+    display: flex;
+    gap: 30px;
+}

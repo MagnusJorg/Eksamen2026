@@ -1,0 +1,16 @@
+.barnkort{
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.barnkort img{
+width: 300px;
+}

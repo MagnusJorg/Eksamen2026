@@ -1,7 +1,8 @@
 // src/pages/BoernePanel.jsx
 import { Link } from 'react-router-dom';
 import { panelData } from '../data/panelData';
-import BarnKort from '../components/PanelKort'; // <--- VIGTIG IMPORT
+import BarnKort from '../components/PanelKort'; // compontent
+import './BoernePanel.css'; 
 
 export default function BoernePanel() {
     return (
@@ -19,10 +20,11 @@ export default function BoernePanel() {
         </section>
 
         {/* Her viser vi kortene */}
-        <section className="panel-grid">
-           {panelData.map((barn) => (
+        <section className="panelsec">
+           <article className='kortgrid'>{panelData.map((barn) => (
               <BarnKort key={barn.id} barn={barn} />
            ))}
+           </article>
         </section>
 
       </main>
