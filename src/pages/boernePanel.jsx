@@ -1,19 +1,30 @@
-import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+// src/pages/BoernePanel.jsx
+import { Link } from 'react-router-dom';
 import { panelData } from '../data/panelData';
-import './TrendProfil.css'; // Vi henter stylingen fra CSS filen
+import BarnKort from '../components/PanelKort'; // <--- VIGTIG IMPORT
 
 export default function BoernePanel() {
     return (
-      <>
-      <section className="trendoverblik">
-        <article className="top">
-          <h1> Panel</h1>
-        </article>
-      </section>
-      <section className='kort'>
+      <main> {/* Vi genbruger 'trend-side' containeren */}
+        
+        {/* Header sektion */}
+        <section className="top">
+           <div className="top-indhold">
+              <Link to="/" className="tilbage-link">← Tilbage</Link>
+              <article className="info">
+                <h1>Børnepanel</h1>
+                <p>Mød eksperterne der tester alle trends.</p>
+              </article>
+           </div>
+        </section>
 
-      </section>
-      </>
+        {/* Her viser vi kortene */}
+        <section className="panel-grid">
+           {panelData.map((barn) => (
+              <BarnKort key={barn.id} barn={barn} />
+           ))}
+        </section>
+
+      </main>
     )
-  }
+}

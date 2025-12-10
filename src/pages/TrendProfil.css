@@ -61,7 +61,7 @@
 }
 /* --- FÆLLES BOKS STYLING --- */
 /* Alle artikler (nordisk, billeder, data, indsigter) deler disse grundregler */
-article {
+.nordisk, .billeder, .dataoverblik, .indsigter {
     background-color: white;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

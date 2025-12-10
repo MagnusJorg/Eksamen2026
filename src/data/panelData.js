@@ -8,7 +8,7 @@ export const panelData = [
     navn: "Lucas",
     alder: "10 år",
     interesser: "Gaming, YouTube",
-    billede: "barn1" // Midlertidigt billede
+    billede: barn1, // Midlertidigt billede
   },
   {
     id: 2,
