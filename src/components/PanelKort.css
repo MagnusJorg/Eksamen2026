@@ -24,6 +24,7 @@ width: 300px;
 .underinfo{
     gap: 10px;
     display: flex;
+    margin-bottom: 10px;
 }
 
 .pknap{
@@ -31,3 +32,4 @@ width: 300px;
     display: flex;
     justify-content: flex-end;
 }
+
