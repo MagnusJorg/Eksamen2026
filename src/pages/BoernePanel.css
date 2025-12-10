@@ -5,6 +5,8 @@
 }
 
 .kortgrid{
-    display: flex;
-    gap: 30px;
+    display: grid;                      /* Vi skifter fra flex til grid */
+    grid-template-columns: repeat(3, 1fr); /* Laver præcis 3 lige store kolonner */
+    gap: 30px;                          /* Afstand mellem kortene både vandret og lodret */
+    width: fit-content;                 /* Sikrer at gridet ikke fylder mere end nødvendigt */
 }

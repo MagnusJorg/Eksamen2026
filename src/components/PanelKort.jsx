@@ -12,6 +12,7 @@ export default function BarnKort({ barn }) {
       <article className="barninfo">
         <article className='topinfo'>
           <h2>{barn.navn}</h2>
+          <article className='underinfo'>
           <img 
                  src={barn.flag} 
                  className="land-flag" 
@@ -19,7 +20,7 @@ export default function BarnKort({ barn }) {
           <span className="barn-by">{barn.by}</span>
           <span className="barn-klasse">{barn.klasse}</span>
           <span className="barn-alder">{barn.alder}</span>
-
+        </article>
         </article> 
         <div className="tags">
            {/* Vi splitter interesser ad ved komma, hvis det er en tekststreng */}
@@ -27,9 +28,11 @@ export default function BarnKort({ barn }) {
               <span key={i} className="trend-tag">{interesse.trim()}</span>
            ))}
         </div>
-        
-        <button className="btn-profil">Se profil →</button>
-      </article>
+              
+        <div className='pknap'>
+         <button className="btn-cta">Se profil →</button>
+         </div>
+         </article>
     </article>
   );
 }

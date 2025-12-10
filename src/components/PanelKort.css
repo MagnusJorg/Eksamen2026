@@ -1,8 +1,4 @@
 .barnkort{
-    display: flex;
-    flex-direction: column;
-    display: flex;
-    flex-direction: column;
     background-color: white;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -11,6 +7,27 @@
     margin-bottom: 30px;
 }
 
-.barnkort img{
+.barn-billede img{
 width: 300px;
+}
+
+.barninfo{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px 10px 10px;
+}
+.land-flag{
+    width: 25px;
+    border-radius: 4px;
+}
+
+.underinfo{
+    gap: 10px;
+    display: flex;
+}
+
+.pknap{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
 }
