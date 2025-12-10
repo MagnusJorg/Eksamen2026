@@ -5,6 +5,13 @@
     width: 300px;
     overflow: hidden;
     margin-bottom: 30px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer; /* Viser en hånd når man holder musen over */
+}
+
+.barnkort:hover {
+    transform: translateY(-5px); /* Løfter kortet 5 pixels op */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Gør skyggen dybere/større */
 }
 
 .barn-billede img{

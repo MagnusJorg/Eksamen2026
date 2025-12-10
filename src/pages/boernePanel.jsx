@@ -19,8 +19,8 @@ export default function BoernePanel() {
         { fil: '/icons/fi.svg', id: '/icons/fi.svg' }
     ];
 
-    // Vi har ændret knapperne, så de matcher dataen præcist (Simpelt!)
-    const aldersgrupper = ["7 år", "8 år", "10 år", "12 år"];
+    // HER ER DINE NYE INTERVALLER
+    const aldersgrupper = ["7-8 år", "9-10 år", "11-12 år"];
     const koen = ["Drenge", "Piger"];
     
     // Disse tags skal findes i teksten under "interesser" i dataen
@@ -30,7 +30,15 @@ export default function BoernePanel() {
     const filtreretData = panelData.filter(barn => {
         // Hvis et filter er valgt, SKAL det matche. Ellers går vi videre.
         if (valgtLand && barn.flag !== valgtLand) return false;
-        if (valgtAlder && barn.alder !== valgtAlder) return false; // Direkte match
+        
+        // Vi tjekker om barnets alder passer i intervallet
+        if (valgtAlder) {
+            const alder = parseInt(barn.alder);
+            if (valgtAlder === "7-8 år" && (alder < 7 || alder > 8)) return false;
+            if (valgtAlder === "9-10 år" && (alder < 9 || alder > 10)) return false;
+            if (valgtAlder === "11-12 år" && (alder < 11 || alder > 12)) return false;
+        }
+
         if (valgtKoen && barn.koen !== valgtKoen) return false;    // Direkte match
         if (valgtInteresse && !barn.interesser.includes(valgtInteresse)) return false;
         
@@ -44,7 +52,7 @@ export default function BoernePanel() {
     };
 
     return (
-      <main> 
+      <> 
         <section className="top">
            <div className="top-indhold">
               <Link to="/" className="tilbage-link">← Tilbage</Link>
@@ -52,23 +60,21 @@ export default function BoernePanel() {
                 <h1>Børnepanel</h1>
                 
                 {/* --- FILTER START --- */}
-                <div className="filter-board">
-                    
+                <div className="filtermenu">
                     {/* Øverste række: Lande + Alder + Køn */}
-                    <div className="filter-row top-row">
-                        <div className="group-lande">
+                    <div className="demografifilter">
+                        <div className="landfilter">
                             {lande.map((land) => (
                                 <button 
                                     key={land.id}
                                     className={`btn-land ${valgtLand === land.id ? 'active' : ''}`}
-                                    onClick={() => toggle(valgtLand, setValgtLand, land.id)}
-                                >
-                                    <img src={land.fil} alt="flag" style={{width: '24px'}} />
+                                    onClick={() => toggle(valgtLand, setValgtLand, land.id)} >
+                                    <img src={land.fil} alt="flag" />
                                 </button>
                             ))}
                         </div>
                         
-                        <div className="group-buttons">
+                        <div className="demografiknapper">
                             {aldersgrupper.map(alder => (
                                 <button 
                                     key={alder}
@@ -78,9 +84,7 @@ export default function BoernePanel() {
                                     {alder}
                                 </button>
                             ))}
-                            
-                            <div className="divider" style={{width:'15px'}}></div> {/* Mellemrum */}
-
+                           <div className='koenplads'>
                             {koen.map(k => (
                                 <button 
                                     key={k}
@@ -90,11 +94,12 @@ export default function BoernePanel() {
                                     {k}
                                 </button>
                             ))}
+                            </div>
                         </div>
                     </div>
 
                     {/* Nederste række: Interesser */}
-                    <div className="filter-row bottom-row">
+                    <div className="filterinteresser">
                         {interesser.map(tag => (
                             <button 
                                 key={tag}
@@ -107,8 +112,6 @@ export default function BoernePanel() {
                     </div>
 
                 </div>
-                {/* --- FILTER SLUT --- */}
-
               </article>
            </div>
         </section>
@@ -124,6 +127,6 @@ export default function BoernePanel() {
                )}
            </article>
         </section>
-      </main>
+      </>
     )
 }

@@ -16,6 +16,8 @@ export default function BarnKort({ barn }) {
           <img 
                  src={barn.flag} 
                  className="land-flag" 
+                 loading="lazy"
+                 alt="flag"
                />
           <span className="barn-by">{barn.by}</span>
           <span className="barn-klasse">{barn.klasse}</span>

@@ -10,3 +10,26 @@
     gap: 30px;                          /* Afstand mellem kortene både vandret og lodret */
     width: fit-content;                 /* Sikrer at gridet ikke fylder mere end nødvendigt */
 }
+
+.landfilter{
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.demografiknapper{
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.filterinteresser{
+    display: flex;
+    gap: 5px;
+}
+
+.koenplads{
+    padding-left: 20px;
+    gap: 5px;
+    display: flex;
+}
