@@ -33,6 +33,7 @@ export default function BarnKort({ barn }) {
               
         <div className='pknap'>
          <button className="btn-cta">Se profil →</button>
+         <Link to={`/barn/${barn.id}`}></Link>
          </div>
          </article>
     </article>
