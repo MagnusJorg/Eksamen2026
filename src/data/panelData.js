@@ -38,6 +38,10 @@ export const panelData = [
     koen: "Drenge",
     interesser: "Gamer, Biler, Udendørs",
     billede: frederik, 
+    beskrivelse: "Frederik er en kritisk tester, der ikke er bange for at sige sin mening. Han elsker komplekse systemsæt.",
+    legetoej: ["Brainrot kort", "Hot Wheels", "Krea gynge"],
+    oensker: ["Schleich løve", "Lego City", "F1 Bil"],
+    serier: ["YouTube", "MrBeast", "Gaming TV"]
   },
   {
     id: 2,

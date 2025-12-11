@@ -7,6 +7,7 @@
     margin-bottom: 30px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer; /* Viser en hånd når man holder musen over */
+    
 }
 
 .barnkort:hover {
@@ -40,3 +41,7 @@ width: 300px;
     justify-content: flex-end;
 }
 
+.barnkort-link {
+    text-decoration: none; /* Fjerner understregning */
+    color: inherit;        /* Beholder tekstfarven */
+}
