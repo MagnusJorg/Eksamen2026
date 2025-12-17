@@ -11,7 +11,7 @@ export default function BarnKort({ barn }) {
           </div>
           
           <article className="barninfo">
-            <article className='topinfo'>
+            <article className='topinfo1'>
               <h2>{barn.navn}</h2>
               <article className='underinfo'>
                 <img 

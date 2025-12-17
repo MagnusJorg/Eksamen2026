@@ -1,0 +1,40 @@
+.tingliste{
+    display: flex;
+
+}
+.ting{
+    padding: 10px;
+}
+
+.rekkeboks {
+ background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+.tingliste {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between; 
+}
+
+.ting {
+    width: 33%; /* Hver ting får ca. en tredjedel plads */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrerer tekst og boks */
+}
+
+/* --- DEN GRÅ BOKS --- */
+.dummy-billede {
+    width: 100%;             /* Fyld hele bredden af sin kolonne */
+    aspect-ratio: 1 / 1;     /* Gør den kvadratisk (lige så høj som bred) */
+    background-color: #E0E0E0; /* Lys grå farve */
+    border-radius: 12px;     /* Runde hjørner */
+    margin-bottom: 8px;      /* Luft ned til teksten */
+}
+

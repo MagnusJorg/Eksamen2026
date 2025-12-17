@@ -52,7 +52,11 @@ export const panelData = [
     klasse: "4. Klasse",
     koen: "Piger",
     interesser: "Heste, Krea, Dyr",
-    billede: laura
+    billede: laura,
+    beskrivelse: "Laura er en kritisk tester, der ikke er bange for at sige sin mening. Han elsker komplekse systemsæt.",
+    legetoej: ["Brainrot kort", "Hot Wheels", "Krea gynge"],
+    oensker: ["Schleich løve", "Lego City", "F1 Bil"],
+    serier: ["YouTube", "MrBeast", "Gaming TV"]
   },
   {
     id: 3,
@@ -63,7 +67,11 @@ export const panelData = [
     klasse: "2. Klasse",
     koen: "Piger",
     interesser: "Bamser, Dukker, Dyr",
-    billede: luna
+    billede: luna,
+    beskrivelse: "Luna er en kritisk tester, der ikke er bange for at sige sin mening. Han elsker komplekse systemsæt.",
+    legetoej: ["Brainrot kort", "Hot Wheels", "Krea gynge"],
+    oensker: ["Schleich løve", "Lego City", "F1 Bil"],
+    serier: ["YouTube", "MrBeast", "Gaming TV"]
   },
   {
     id: 4,

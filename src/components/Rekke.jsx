@@ -1,4 +1,4 @@
-import './rekke.css'
+import './Rekke.css'
 
 export default function Rekke({ overskrift, ting }) {
   return (
@@ -6,10 +6,11 @@ export default function Rekke({ overskrift, ting }) {
       <h3>{overskrift}</h3>
       
       <div className="tingliste">
-        {ting.map((navn) => (
-          <div key={navn} className="ting">
-             {/* Den grå firkant er plads til billedet */}
-             <div className="firkant"></div> 
+        {ting.map((navn, index) => (
+          <div key={index} className="ting">
+             {/* HER ER DEN GRÅ FIRKANT: */}
+             <div className="dummy-billede"></div> 
+             
              <p>{navn}</p>
           </div>
         ))}

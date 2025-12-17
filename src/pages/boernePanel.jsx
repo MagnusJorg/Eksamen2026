@@ -55,7 +55,7 @@ export default function BoernePanel() {
       <> 
         <section className="top">
            <div className="top-indhold">
-              <Link to="/" className="tilbage-link">← Tilbage</Link>
+
               <article className="info">
                 <h1>Børnepanel</h1>
                 
